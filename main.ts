@@ -1,6 +1,47 @@
 enum RadioMessage {
     message1 = 49434
 }
+function welcome_face () {
+    basic.showLeds(`
+        # . # . #
+        . # # # .
+        . . # . .
+        . # # # .
+        . # . # .
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . # # # .
+        . # . # .
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        # . # . #
+        . # # # .
+        . . # . .
+        . # # # .
+        . # . # .
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        . . # . .
+        . # # # .
+        # . # . #
+        . # # # .
+        . # . # .
+        `)
+    basic.pause(50)
+    basic.showLeds(`
+        . # . # .
+        . . . . .
+        # . . . #
+        # . . . #
+        . # # # .
+        `)
+}
 function playSprite () {
     led.setBrightness(255)
     // Create a dot in the middle of the matrix
@@ -33,14 +74,8 @@ let y = 0
 let my_dot: game.LedSprite = null
 serial.redirectToUSB()
 serial.writeLine("Felix sin microbit")
-basic.showLeds(`
-    . # . # .
-    . . . . .
-    # . . . #
-    # . . . #
-    . # # # .
-    `)
-music.setVolume(0)
+welcome_face()
+music.setVolume(208)
 while (true) {
     serial.writeLine("" + (input.soundLevel()))
     basic.pause(50)
